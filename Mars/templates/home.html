@@ -1,0 +1,45 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Главная страница</title>
+    <link rel="stylesheet" href="{% static 'css/styles_home.css' %}">
+</head>
+<body class="background">
+
+    <!-- Заголовок страницы -->
+    <h1 class="page-title">Географические объекты Марса</h1>
+
+    <!-- Поле поиска по центру -->
+    <div class="search-container">
+        <form method="GET" action="">
+            <input type="text" name="q" class="search-input" placeholder="Поиск по услугам..." value="{{ query }}">
+            <button type="submit" class="search-button">Найти</button>
+        </form>
+    </div>
+
+    <!-- Контейнер для карточек услуг -->
+    <div class="container">
+        {% for obj in objects %}
+        <div class="card">
+            <img src="{{ obj.image_url }}" alt="{{ obj.title }}" class="service-image">
+            <h3 class="service-title">{{ obj.title }}</h3>
+            <div class="buttons">
+                <a href="{% url 'service_detail' object_id=obj.id %}" class="btn">Подробнее</a>
+                <button class="cart-btn">
+                    <img src="http://localhost:9000/images/cart.png" alt="Корзина">
+                </button>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+
+    <!-- Кнопка корзины (внизу справа) -->
+    <a href="#" class="cart-request-btn">
+        <img src="http://localhost:9000/images/cart-req.jpg" alt="Корзина заявок" class="cart-image">
+    </a>
+
+</body>
+</html>

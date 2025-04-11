@@ -1,0 +1,64 @@
+/* Фон */
+body.background {
+    font-family: Arial, sans-serif;
+    background-image: url('http://localhost:9000/images/bg1.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+}
+
+/* Контейнер */
+.detail-container {
+    background-color: rgba(255, 255, 255, 0.95);
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+    text-align: center;
+}
+
+/* Заголовок */
+.detail-title {
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: #2c3e50;
+}
+
+/* Изображение */
+.detail-image {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+/* Описание */
+.detail-description {
+    font-size: 16px;
+    color: #444;
+    margin-bottom: 30px;
+}
+
+/* Кнопка на главную */
+.home-btn {
+    background-color: #de8406;
+    color: white;
+    padding: 10px 18px;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.home-btn:hover {
+    transform: scale(1.1);
+}
+
+.home-btn:active {
+    opacity: 0.7;
+}

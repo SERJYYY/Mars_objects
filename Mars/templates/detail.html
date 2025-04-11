@@ -1,0 +1,18 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ obj.title }}</title>
+    <link rel="stylesheet" href="{% static 'css/styles_detail.css' %}">
+</head>
+<body class="background">
+    <div class="detail-container">
+        <h1 class="detail-title">{{ obj.title }}</h1>
+        <img src="{{ obj.image_url }}" alt="{{ obj.title }}" class="detail-image">
+        <p class="detail-description">{{ obj.description }}</p>
+        <a href="{% url 'home' %}" class="btn home-btn">На главную</a>
+    </div>
+</body>
+</html>

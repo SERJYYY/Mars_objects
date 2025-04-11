@@ -1,0 +1,171 @@
+/* Фон и базовые стили */
+body.background {
+    font-family: Arial, sans-serif;
+    background-image: url('http://localhost:9000/images/bg.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+}
+
+/* Заголовок страницы */
+.page-title {
+    text-align: center;
+    color: rgb(255, 123, 0);
+    font-size: 32px;
+    margin-top: 30px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Поисковая форма */
+.search-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 30px auto 0;
+}
+
+.search-input {
+    padding: 10px;
+    font-size: 16px;
+    border-radius: 8px 0 0 8px;
+    border: 1px solid #ccc;
+    width: 300px;
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+.search-button {
+    padding: 10px 16px;
+    font-size: 16px;
+    background-color: orange;
+    color: white;
+    border: none;
+    border-radius: 0 8px 8px 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.search-button:hover {
+    transform: scale(1.05);
+}
+
+/* Контейнер карточек */
+.container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 40px;
+    justify-items: center;
+}
+
+/* Карточка */
+.card {
+    background-color: rgba(63, 63, 63, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    width: 250px;
+    padding: 15px;
+    text-align: center;
+    color: #34495e;
+    position: relative;
+}
+
+/* Изображение */
+.service-image {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+/* Заголовок услуги */
+.service-title {
+    font-size: 18px;
+    margin: 10px 0;
+    color: #ff8400;
+}
+
+/* Кнопки */
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 10px;
+}
+
+/* Кнопка "Подробнее" */
+.btn {
+    background-color: #01037b;
+    color: white;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 14px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.btn:hover {
+    transform: scale(1.1);
+}
+
+.btn:active {
+    opacity: 0.7;
+}
+
+/* Кнопка "Корзина" (только иконка) */
+.cart-btn {
+    background: none;
+    border: none;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.cart-btn img {
+    width: 24px;
+    height: 24px;
+    transition: all 0.3s ease;
+}
+
+.cart-btn:hover img {
+    transform: scale(1.2);
+}
+
+.cart-btn:active img {
+    opacity: 0.7;
+}
+
+/* Кнопка корзины заявок внизу справа */
+.cart-request-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    cursor: pointer;
+    border-radius: 50%;  /* Круглая форма */
+    overflow: hidden;    /* Обрезает изображение, чтобы оно не выходило за круг */
+    width: 100px;         /* Ширина кнопки */
+    height: 100px;        /* Высота кнопки */
+    background-color: #fff; /* Белый фон */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Легкая тень для кнопки */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Изображение в кнопке */
+.cart-request-btn img {
+    width: 110px;  /* Размер изображения */
+    height: 110px; /* Размер изображения */
+    transition: transform 0.2s ease;
+}
+
+/* При наведении изображение увеличивается */
+.cart-request-btn:hover img {
+    transform: scale(1.1);
+}

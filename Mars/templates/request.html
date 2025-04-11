@@ -1,0 +1,57 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Заявка №{{ request_id }}</title>
+    <link rel="stylesheet" href="{% static 'css/styles_request.css' %}">
+</head>
+<body class="background">
+
+    <!-- Кнопка на главную страницу -->
+    <div class="home-btn-container">
+        <a href="{% url 'home' %}" class="home-btn">На главную</a>
+    </div>
+
+    <!-- Заголовок -->
+    <h1 class="request-title">Заявка №{{ request_id }}</h1>
+
+    <!-- Блок выбора марсохода и статуса -->
+    <div class="request-controls">
+        <div class="select-container">
+            <select name="rover" class="dropdown">
+                {% for rover in rovers %}
+                    <option value="{{ rover }}" {% if rover == request_data.rover %}selected{% endif %}>
+                        {{ rover }}
+                    </option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <div class="select-container">
+            <select name="status" class="dropdown">
+                <option value="успех" {% if request_data.status == "успех" %}selected{% endif %}>Успех</option>
+                <option value="потеря" {% if request_data.status == "потеря" %}selected{% endif %}>Потеря</option>
+                <option value="работает" {% if request_data.status == "работает" %}selected{% endif %}>Работает</option>
+            </select>
+        </div>
+    </div>
+
+    <!-- Карточки услуг -->
+    <div class="card-container">
+        {% for obj in services %}
+            <div class="card">
+                <img src="{{ obj.image_url }}" alt="{{ obj.title }}" class="service-image">
+                <div class="service-info">
+                    <h3 class="service-title">{{ obj.title }}</h3>
+                </div>
+                <a href="#" class="bin-btn">
+                    <img src="http://localhost:9000/images/bin.jpg" alt="Удалить" class="bin-image">
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+
+</body>
+</html>

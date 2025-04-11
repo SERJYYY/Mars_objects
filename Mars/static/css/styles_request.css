@@ -1,0 +1,134 @@
+/* Общий фон страницы */
+.background {
+    background-color: #f4f4f9;
+    background-image: url("http://localhost:9000/images/bg1.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    font-family: Arial, sans-serif;
+    color: #333;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Центрирование заголовка */
+.request-title {
+    text-align: center;
+    font-size: 32px;
+    color: rgb(255, 123, 0);
+    margin-top: 30px;
+}
+
+/* Контейнер для селектов */
+.request-controls {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    margin-top: 30px;
+}
+
+/* Стили для каждого поля выбора */
+.select-container {
+    display: inline-block;
+}
+
+/* Стили для селектов */
+.dropdown {
+    font-size: 18px;
+    padding: 15px 30px;
+    border-radius: 20px;  /* Увеличено скругление */
+    border: 2px solid #ccc;
+    background-color: rgba(255, 255, 255, 0.9);
+    width: 250px;
+    text-align: center;
+}
+
+/* Карточки услуг */
+.card-container {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    justify-content: center;
+    margin-top: 40px;
+    padding: 0 20px;
+    align-items: center;  /* Центрирование карточек */
+}
+
+/* Карточка */
+.card {
+    background-color: rgba(63, 63, 63, 0.9);
+    border-radius: 20px;  /* Скругленные углы */
+    width: 50%;  /* Растянуть карточки на 50% ширины экрана */
+    display: flex;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    color: #34495e;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Изображение услуги */
+.service-image {
+    width: 120px;  /* Изменено для уменьшения размера */
+    height: 120px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-right: 20px;
+}
+
+/* Информация о услуге */
+.service-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+/* Заголовок услуги */
+.service-title {
+    font-size: 24px;
+    margin: 0;
+    color: #ff8400;
+}
+
+/* Кнопка мусорной корзины */
+.bin-btn {
+    display: inline-block;
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+.bin-image {
+    width: 32px;
+    height: 32px;
+    transition: transform 0.2s ease;
+}
+
+.bin-btn:hover .bin-image {
+    transform: scale(1.2);
+}
+
+/* Кнопка на главную страницу */
+.home-btn-container {
+    position: absolute;
+    top: 10px;
+    left: 20px;
+}
+
+.home-btn {
+    background-color: #ff8400;
+    color: white;
+    padding: 10px 18px;
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.home-btn:hover {
+    transform: scale(1.1);
+}
+
+.home-btn:active {
+    opacity: 0.7;
+}
