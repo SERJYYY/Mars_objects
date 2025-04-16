@@ -5,6 +5,7 @@
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    background-attachment: fixed;
     font-family: Arial, sans-serif;
     color: #333;
     height: 100vh;
@@ -47,19 +48,21 @@
 /* Карточки услуг */
 .card-container {
     display: flex;
-    flex-direction: column;
-    gap: 30px;
-    justify-content: center;
+    flex-direction: column;  /* Растягиваем карточки вертикально */
+    gap: 20px;
+    justify-content: center; /* Центрируем карточки */
     margin-top: 40px;
     padding: 0 20px;
-    align-items: center;  /* Центрирование карточек */
+    width: 66.6vw;  /* 2/3 ширины экрана */
+    margin-left: auto;
+    margin-right: auto;
 }
 
 /* Карточка */
 .card {
     background-color: rgba(63, 63, 63, 0.9);
     border-radius: 20px;  /* Скругленные углы */
-    width: 50%;  /* Растянуть карточки на 50% ширины экрана */
+    width: 100%;  /* Каждая карточка занимает 100% ширины контейнера */
     display: flex;
     padding: 20px;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
@@ -70,7 +73,7 @@
 
 /* Изображение услуги */
 .service-image {
-    width: 120px;  /* Изменено для уменьшения размера */
+    width: 120px;  /* Размер изображения */
     height: 120px;
     object-fit: cover;
     border-radius: 10px;
@@ -131,4 +134,53 @@
 
 .home-btn:active {
     opacity: 0.7;
+}
+
+.form-label {
+    font-size: 18px;
+    color: white;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.select-group {
+    display: flex;
+    gap: 30px;
+}
+
+.button-group {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Оранжевая кнопка для сохранения и удаления */
+.orange-button {
+    background-color: #FF6A00;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.orange-button:hover {
+    background-color: #FF8C33;
+}
+
+/* Стили для кнопок сохранения и удаления */
+.button-group button {
+    background-color: #FF6A00;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    border: none;
+}
+
+.button-group button:hover {
+    background-color: #FF8C33;
 }

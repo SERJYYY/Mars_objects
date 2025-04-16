@@ -4,9 +4,10 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>Заявка №{{ request_id }}</title>
+    <title>Формирование заявки</title>
     <link rel="stylesheet" href="{% static 'css/styles_request.css' %}">
 </head>
+
 <body class="background">
 
     <!-- Кнопка на главную страницу -->
@@ -17,36 +18,58 @@
     <!-- Заголовок -->
     <h1 class="request-title">Заявка №{{ request_id }}</h1>
 
-    <!-- Блок выбора марсохода и статуса -->
-    <div class="request-controls">
-        <div class="select-container">
-            <select name="rover" class="dropdown">
-                {% for rover in rovers %}
-                    <option value="{{ rover }}" {% if rover == request_data.rover %}selected{% endif %}>
-                        {{ rover }}
-                    </option>
-                {% endfor %}
-            </select>
-        </div>
+    <!-- Блок выбора марсохода, статуса и кнопок -->
+    <form method="POST" action="{% url 'save_request' %}">
+        {% csrf_token %}
+        <div class="request-controls">
+            <div class="select-group">
+                <div class="select-container">
+                    <label for="rover" class="form-label">Марсоход:</label>
+                    <select name="rover" id="rover" class="dropdown">
+                        {% for rover in rovers %}
+                            <option value="{{ rover.id }}" {% if rover.id == request_data.rover.id %}selected{% endif %}>
+                                {{ rover.name }}
+                            </option>
+                        {% endfor %}
+                    </select>
+                </div>
 
-        <div class="select-container">
-            <select name="status" class="dropdown">
-                <option value="успех" {% if request_data.status == "успех" %}selected{% endif %}>Успех</option>
-                <option value="потеря" {% if request_data.status == "потеря" %}selected{% endif %}>Потеря</option>
-                <option value="работает" {% if request_data.status == "работает" %}selected{% endif %}>Работает</option>
-            </select>
+                <div class="select-container">
+                    <label for="status" class="form-label">Статус:</label>
+                    <select name="status" id="status" class="dropdown">
+                        {% for status, label in statuses %}
+                            <option value="{{ status }}" {% if request_data.status == status %}selected{% endif %}>{{ label }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+
+            <!-- Кнопка сохранить заявку -->
+            <div class="button-group">
+                <button type="submit" class="orange-button">Сохранить заявку</button>
+            </div>
         </div>
-    </div>
+    </form>
+
+    <!-- Кнопка удаления заявки -->
+    <form method="POST" action="{% url 'delete_request' request_id=request_data.id %}">
+        {% csrf_token %}
+        <div class="request-controls">
+            <div class="button-group">
+                <button type="submit" class="orange-button" style="margin-top: 10px;">Удалить заявку</button>
+            </div>
+        </div>
+    </form>
 
     <!-- Карточки услуг -->
     <div class="card-container">
-        {% for obj in services %}
+        {% for item in items %}
             <div class="card">
-                <img src="{{ obj.image_url }}" alt="{{ obj.title }}" class="service-image">
+                <img src="{{ item.service.image_url }}" alt="{{ item.service.name }}" class="service-image">
                 <div class="service-info">
-                    <h3 class="service-title">{{ obj.title }}</h3>
+                    <h3 class="service-title">{{ item.service.name }}</h3>
                 </div>
-                <a href="#" class="bin-btn">
+                <a href="{% url 'remove_from_cart' item.id %}" class="bin-btn">
                     <img src="http://localhost:9000/images/bin.jpg" alt="Удалить" class="bin-image">
                 </a>
             </div>
